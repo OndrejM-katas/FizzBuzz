@@ -1,16 +1,11 @@
-# SpockKata
-Example project to use Spock in a Gradle project
+FizzBuzz Kata
+=============
 
-# Steps for setup of Spock + Gradle + Netbeans
-1. Add groovy and spock dependencies to build.gradle
-2. Add groovy plugin to build.gradle (apply plugin: 'groovy')
-3. Necessary plugins for Netbeans 8.0: Gradle, Groovy
-4. Create Groovy test file in src/test/groovy/..., and turn it into Spock specification
-    - be careful to have Spock specs in the correct directory
+ - following the article at http://dotnet.dzone.com/articles/fizzbuzz-tdd-kata%E2%80%93-using
 
-# Steps to execute Spock specifications
-Spock specs are normally executed as Gradle test cases, either from within Netbeans, or from Gradle on command line. 
-
-Example for test "First dummy test fails" inside DummySpec specification: 
-
-    gradle :test --tests eu.inginea.spockkata.DummySpec.First dummy test fails 
+ - a kata to demonstrate and exercise following skills:
+   - TDD way of development (happened during writing the code)
+   - Use Spock framework for testing
+   - Use gradle to build and run tests
+   - Exercise Java 8 lambdas and streams in the solution
+     - it would be interesting to exercise a reactive library, as in the original article
