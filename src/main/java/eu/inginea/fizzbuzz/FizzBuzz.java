@@ -1,5 +1,7 @@
 package eu.inginea.fizzbuzz;
 
+import java.util.stream.IntStream;
+
 /**
  *
  * @author media
@@ -7,12 +9,28 @@ package eu.inginea.fizzbuzz;
 public class FizzBuzz {
     
     public static String generate(int toNumber) {
-        if (toNumber == 1) {
-            return "1";
-        } else if (toNumber == 2) {
-            return "1,2";
+        if (toNumber < 1) {
+            return "";
+        } else {
+            return IntStream.rangeClosed(2, toNumber)
+                    .mapToObj(n -> divisibleBy3and5(n) ? "FizzBuzz"
+                                : divisibleBy3(n) ? "Fizz"
+                                : divisibleBy5(n) ? "Buzz"
+                                : String.valueOf(n)
+                    )
+                    .reduce("1", (r, s) -> r + "," + s);
         }
-        return "";
     }
+
+    private static boolean divisibleBy3and5(int n) {
+        return divisibleBy3(n) && divisibleBy5(n);
+    }
+    private static boolean divisibleBy3(int n) {
+        return n % 3 == 0;
+    }
+    private static boolean divisibleBy5(int n) {
+        return n % 5 == 0;
+    }
+    
     
 }
