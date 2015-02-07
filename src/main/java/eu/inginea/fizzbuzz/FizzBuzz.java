@@ -1,5 +1,7 @@
 package eu.inginea.fizzbuzz;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.IntStream;
 
 /**
@@ -14,9 +16,8 @@ public class FizzBuzz {
                             StringBuilder r = new StringBuilder();
                             if (divisibleBy3(n)) r.append("Fizz");
                             if (divisibleBy5(n)) r.append("Buzz");
-                            return (r.length() > 0) 
-                                    ? r.toString()
-                                    : String.valueOf(n);
+                            if (r.length() == 0) r.append(n);
+                            return r.toString();
                 })
                 .reduce("", (r, s) -> r.length() > 0 ? r + "," + s : s);
     }
