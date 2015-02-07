@@ -9,17 +9,13 @@ import java.util.stream.IntStream;
 public class FizzBuzz {
     
     public static String generate(int toNumber) {
-        if (toNumber < 1) {
-            return "";
-        } else {
-            return IntStream.rangeClosed(2, toNumber)
-                    .mapToObj(n -> divisibleBy3and5(n) ? "FizzBuzz"
-                                : divisibleBy3(n) ? "Fizz"
-                                : divisibleBy5(n) ? "Buzz"
-                                : String.valueOf(n)
-                    )
-                    .reduce("1", (r, s) -> r + "," + s);
-        }
+        return IntStream.rangeClosed(1, toNumber)
+                .mapToObj(n -> (divisibleBy3and5(n) ? "FizzBuzz"
+                            : divisibleBy3(n) ? "Fizz"
+                            : divisibleBy5(n) ? "Buzz"
+                            : String.valueOf(n))
+                )
+                .reduce("", (r, s) -> r.length() > 0 ? r + "," + s : s);
     }
 
     private static boolean divisibleBy3and5(int n) {
